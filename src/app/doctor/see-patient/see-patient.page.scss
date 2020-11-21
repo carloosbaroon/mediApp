@@ -1,0 +1,19 @@
+.active, .collapsible:hover {
+  background-color: pink;
+}
+
+.content {
+  padding: 0 10px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+data-title {
+  font-size: 18px;
+}
+
+data-content{
+  font-size: 15px;
+}
