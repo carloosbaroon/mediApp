@@ -8,3 +8,6 @@
 .idea/workspace.xml
 package.json
 package.json
+.idea/*
+/www/
+/platforms/
