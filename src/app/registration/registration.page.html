@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [hidden]="isDoctor" [formGroup]="doctorRegister">
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="name" required></ion-input>
+    </ion-item>
+    <div *ngIf="(dname.dirty || dname.touched) && dname.errors" class="errors">
+      <span *ngIf="dname.errors?.required">Ingresa tu nombre</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input type="text" formControlName="lastname" required></ion-input>
+    </ion-item>
+    <div *ngIf="(dlname.dirty || dlname.touched) && dlname.errors" class="errors">
+      <span *ngIf="dlname.errors?.required">Ingresa tus apellidos</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Calle</ion-label>
+      <ion-input type="text" formControlName="street" required></ion-input>
+    </ion-item>
+    <div *ngIf="(dstreet.dirty || dstreet.touched) && dstreet.errors" class="errors">
+      <span *ngIf="dstreet.errors?.required">Ingresa tu dirección</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Código Postal</ion-label>
+      <ion-input type="text" formControlName="cp" required></ion-input>
+    </ion-item>
+    <div *ngIf="(dcp.dirty || dcp.touched) && dcp.errors" class="errors">
+      <span *ngIf="dcp.errors?.required">Ingresa tu código postal</span>
+      <span *ngIf="dcp.errors?.minlength">El código postal no es valido</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Cedula profesional</ion-label>
+      <ion-input type="text" formControlName="cedprof" required></ion-input>
+    </ion-item>
+    <div *ngIf="(cprof.dirty || cprof.touched) && cprof.errors" class="errors">
+      <span *ngIf="cprof.errors?.required">Ingresa tu cedula profesional</span>
+      <span *ngIf="cprof.errors?.minlength">La cedula no es válida</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" required></ion-input>
+    </ion-item>
+    <div *ngIf="(demail.dirty || demail.touched) && demail.errors" class="errors">
+      <span *ngIf="demail.errors?.required">Ingresa el correo</span>
+      <span *ngIf="demail.errors?.email">El correo no es válido</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" required></ion-input>
+    </ion-item>
+    <div *ngIf="(dpassword.dirty || dpassword.touched) && dpassword.errors" class="errors">
+      <span *ngIf="dpassword.errors?.required">Ingresa el password</span>
+      <span *ngIf="dpassword.errors?.minlength">El password no es correcto</span>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" (click)="registrarDoctor()">Registrarse</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <form [hidden]="!isDoctor" [formGroup]="patientRegister">
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="name" required></ion-input>
+    </ion-item>
+    <div *ngIf="(pname.dirty || pname.touched) && pname.errors" class="errors">
+      <span *ngIf="pname.errors?.required">Ingresa tu nombre</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input type="text" formControlName="lastname" required></ion-input>
+    </ion-item>
+    <div *ngIf="(plname.dirty || plname.touched) && plname.errors" class="errors">
+      <span *ngIf="plname.errors?.required">Ingresa tus apellidos</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">NSS</ion-label>
+      <ion-input type="text" formControlName="nss" required></ion-input>
+    </ion-item>
+    <div *ngIf="(pnss.dirty || pnss.touched) && pnss.errors" class="errors">
+      <span *ngIf="pnss.errors?.required">Ingresa tu número de seguridad social</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Poliza</ion-label>
+      <ion-input type="text" formControlName="poliza" required></ion-input>
+    </ion-item>
+    <div *ngIf="(ppoliza.dirty || ppoliza.touched) && ppoliza.errors" class="errors">
+      <span *ngIf="ppoliza.errors?.required">Ingresa tu número de poliza</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" required></ion-input>
+    </ion-item>
+    <div *ngIf="(pemail.dirty || pemail.touched) && pemail.errors" class="errors">
+      <span *ngIf="pemail.errors?.required">Ingresa el correo</span>
+      <span *ngIf="pemail.errors?.email">El correo no es válido</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" required></ion-input>
+    </ion-item>
+    <div *ngIf="(ppassword.dirty || ppassword.touched) && ppassword.errors" class="errors">
+      <span *ngIf="ppassword.errors?.required">Ingresa el password</span>
+      <span *ngIf="ppassword.errors?.minlength">El password no es correcto</span>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" (click)="registrarPaciente()">Registrarse</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <ion-item>
+    <ion-label>Registrarte como doctor</ion-label>
+    <ion-toggle (ionChange)="changeDoctorValue($event)"></ion-toggle>
+  </ion-item>
+</ion-content>

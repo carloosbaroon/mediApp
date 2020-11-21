@@ -1,0 +1,54 @@
+<ion-content>
+
+  <ion-card>
+    <img style="margin-top: -15%; margin-bottom: -15%;" src="../../assets/logo/mediApp.png" />
+    <ion-card-header style="text-align:center; margin: 0 auto;" >
+      <ion-card-subtitle>Cuidamos de ti</ion-card-subtitle>
+      <ion-card-title>MediApp</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="login()" [formGroup]="credentials">
+        <div class="input-group">
+          <ion-item>
+            <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Ingresa el correo</span>
+            <span *ngIf="email.errors?.email">El correo no es válido</span>
+          </div>
+          <ion-item>
+            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+          </ion-item>
+          <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+            <span *ngIf="password.errors?.required">Ingresa el password</span>
+            <span *ngIf="password.errors?.minlength">El password no es correcto</span>
+          </div>
+        </div>
+
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
+            <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+          </ion-col>
+        </ion-row>
+
+      </form>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-center>
+
+            <span class="divider line one-line">or</span>
+
+            <ion-button [routerLink]="['/registration']" expand="block" color="primary">Register</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+</ion-content>
